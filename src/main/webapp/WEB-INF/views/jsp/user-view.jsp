@@ -38,20 +38,20 @@ body {
 								<c:if test="${canFollow == 1}">
 									<div>
 										<div class="btn btn-primary follow">
-											<a href="/com.prj1.com/follow/${user.id}">Follow</a>
+											<a href="/prj1.com/follow/${user.id}">Follow</a>
 										</div>
 										<div class="btn btn-outline-primary message">
-											<a href="/com.prj1.com/mail-save/${user.username}">Message</a>
+											<a href="/prj1.com/mail-save/${user.username}">Message</a>
 										</div>
 									</div>
 								</c:if>
 								<c:if test="${canFollow == 0}">
 									<div>
 										<div class="btn btn-primary follow">
-											<a href="/com.prj1.com/unFollow/${user.id}">Unfollow</a>
+											<a href="/prj1.com/unFollow/${user.id}">Unfollow</a>
 										</div>
 										<div class="btn btn-outline-primary message">
-											<a href="/com.prj1.com/mail-save/${user.username}">Message</a>
+											<a href="/prj1.com/mail-save/${user.username}">Message</a>
 										</div>
 									</div>
 								</c:if>
@@ -98,7 +98,7 @@ body {
 								<c:if
 									test="${pageContext.request.userPrincipal.name == user.username}">
 									<a class="btn btn-info " target="__blank"
-										href="/com.prj1.com/user-update/-1/${user.username}">Edit</a>
+										href="/prj1.com/user-update/-1/${user.username}">Edit</a>
 								</c:if>
 							</div>
 						</div>
@@ -160,10 +160,10 @@ body {
 													aria-expanded="false"> ${news.author} </a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 													<li><a class="dropdown-item"
-														href="/com.prj1.com/user-view/-1/${news.author}">View
+														href="/prj1.com/user-view/-1/${news.author}">View
 															Profile</a></li>
 													<li><a class="dropdown-item"
-														href="/com.prj1.com/mail-save/${news.author}">Send Mail</a></li>
+														href="/prj1.com/mail-save/${news.author}">Send Mail</a></li>
 												</ul>
 											</div>
 										</h5>
@@ -176,7 +176,7 @@ body {
 											test="${pageContext.request.userPrincipal.name == news.author}">
 											<div class="btn btn-outline-primary message"
 												style="margin-left: 110px;">
-												<a href="/com.prj1.com/newsSoftDelete/${news.id}/${news.author}">Delete
+												<a href="/prj1.com/newsSoftDelete/${news.id}/${news.author}">Delete
 													your news</a>
 											</div>
 										</c:if>

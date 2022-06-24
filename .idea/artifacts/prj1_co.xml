@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="exploded-war" name="prj1.com:war exploded">
+  <artifact type="exploded-war" name="prj1.co">
     <output-path>$PROJECT_DIR$/target/prj1.com-0.0.1-SNAPSHOT</output-path>
     <properties id="maven-jee-properties">
       <options>

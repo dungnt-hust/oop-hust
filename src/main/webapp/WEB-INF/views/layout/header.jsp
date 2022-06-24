@@ -6,11 +6,11 @@
       <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" id="main-menu">
-          <li><a href="/prj1_com_war_exploded/news-list" class="nav-link px-2 text-white">HOME</a></li>
-          <li><a href="/prj1_com_war_exploded/product-list" class="nav-link px-2">SHOP</a></li>
+          <li><a href="/prj1.com/news-list" class="nav-link px-2 text-white">HOME</a></li>
+          <li><a href="/prj1.com/product-list" class="nav-link px-2">SHOP</a></li>
           <li><a href="https://github.com/hoangtc125/Project-1-Hust" class="nav-link px-2">GITHUB</a></li>
           <li><a href="https://drive.google.com/drive/folders/1kAIsVMfNHi0V81b8w80BbJYqUzV3bW_9?usp=sharing" class="nav-link px-2">DRIVE</a></li>
-        	<li><a href="/prj1_com_war_exploded/news-save" class="nav-link px-2">Add Your News</a></li>
+        	<li><a href="/prj1.com/news-save" class="nav-link px-2">Add Your News</a></li>
         </ul>
 
         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" action="<c:url value="/user-list" />" method="get">
@@ -28,28 +28,28 @@
 					${pageContext.request.userPrincipal.name} </a>
 				<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/user-view/-1/${pageContext.request.userPrincipal.name}">Your
+						href="/prj1.com/user-view/-1/${pageContext.request.userPrincipal.name}">Your
 							account</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
-					<li><a class="dropdown-item" href="/prj1_com_war_exploded/user-list">User
+						href="/prj1.com/user-update/-1/${pageContext.request.userPrincipal.name}">Setting</a></li>
+					<li><a class="dropdown-item" href="/prj1.com/user-list">User
 							Management</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/noti-view">Your Notification</a></li>
+						href="/prj1.com/noti-view">Your Notification</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/news-list-management">News Management</a></li>
+						href="/prj1.com/news-list-management">News Management</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/product-list-management">Product Management</a></li>
+						href="/prj1.com/product-list-management">Product Management</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/cart-list-management">Cart Management</a></li>
-					<li><a class="dropdown-item" href="/prj1_com_war_exploded/cart-view/-1/">Your
+						href="/prj1.com/cart-list-management">Cart Management</a></li>
+					<li><a class="dropdown-item" href="/prj1.com/cart-view/-1/">Your
 							Cart</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/bill-list-management">Bill Management</a></li>
-					<li><a class="dropdown-item" href="/prj1_com_war_exploded/bill-list">Your
+						href="/prj1.com/bill-list-management">Bill Management</a></li>
+					<li><a class="dropdown-item" href="/prj1.com/bill-list">Your
 							Bill</a></li>
 					<li><a class="dropdown-item"
-						href="/prj1_com_war_exploded/mail-list/${pageContext.request.userPrincipal.name}">
+						href="/prj1.com/mail-list/${pageContext.request.userPrincipal.name}">
 							<button type="button" class="btn btn-primary position-relative">
 								Your Mail <span
 									class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger "
@@ -70,7 +70,7 @@
 			</c:if>
 			<c:if test="${empty pageContext.request.userPrincipal.name}">
 				<button class="btn btn-outline-light btn-login">
-					<a href="/prj1_com_war_exploded/login">Login</a>
+					<a href="/prj1.com/login">Login</a>
 				</button>
 			</c:if>
 		</div>
