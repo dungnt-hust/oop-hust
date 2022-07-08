@@ -70,6 +70,7 @@ public class CartController {
 	  public String viewcart(@PathVariable int id, Model model, HttpServletRequest request) {
 		 int num = 0;
 		 if(id == -1 || !mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession()))) {
+			 System.out.println("22");
 			 User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
 			 Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
 			 String [] tmpStrings = cart.getListProduct().split(" ");
@@ -79,6 +80,7 @@ public class CartController {
 			 model.addAttribute("cart", cart);
 			 model.addAttribute("num", num);
 			 model.addAttribute("user", user);
+			 System.out.println("111");
 			    return "cart-view";
 		 } else {
 			 Cart cart = cartService.findById(id);
@@ -102,6 +104,7 @@ public class CartController {
 	  
 	  @RequestMapping("/cart-update/{id}")
 	  public String updatecart(@PathVariable("id") int idProduct, Model model, HttpServletRequest request) {
+		  System.out.println("cart0");
 	  Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
 		 String [] tmpStrings = cart.getListProduct().split(" ");
 		 Product product = new Product(); 
@@ -115,6 +118,7 @@ public class CartController {
 		 }
 		model.addAttribute("product", product);
 		model.addAttribute("quan", quan);
+		  System.out.println("cart");
 		return "cart-update";
 	  }
 
@@ -125,10 +129,15 @@ public class CartController {
     	return "redirect:/cart-list-management";
 	  }
 	  
-	  @RequestMapping("/updateCart")
+	  @RequestMapping(value = "/updateCart", method = RequestMethod.GET)
 	  public String doUpdatecart2(@RequestParam(required=true, name = "id") String id, @RequestParam(required=true, name = "quan", defaultValue="1") String quan, Model model, HttpServletRequest request) {
-		 
-		  cartService.update(cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession())), Integer.parseInt(id), Integer.parseInt(quan));
+		 Cart cart = cartService.loadCartByUsername(AppUtils.getLoginedUser(request.getSession()));
+		 if (cart == null){
+			 cart.setUsername(AppUtils.getLoginedUser(request.getSession()));
+			 cart.setListProduct("");
+			 cart.setSumProduct("0");
+		 }
+		  cartService.update(cart, Integer.parseInt(id), Integer.parseInt(quan));
 		  model.addAttribute("listCart", cartService.findAll());
 		  return "redirect:/cart-view/-1";
 	  

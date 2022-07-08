@@ -25,7 +25,6 @@ public class CartService {
 	 
 	  public String[] getListProduct(Cart cart) {
 		return cart.getListProduct().split(" ");
-		
 	}
 
 	public void setListProduct(String[] listProduct) {
@@ -80,6 +79,7 @@ public class CartService {
 				  }
 			  }
 		  }
+
 		  if(mark == 0) {
 			  stringBuilder.append(id + " " + quan + " ");
 			  cart.setSumProduct("" + (Integer.parseInt(cart.getSumProduct()) + Integer.parseInt(product.getPrice()) * quan));
