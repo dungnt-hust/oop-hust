@@ -1,12 +1,15 @@
 package com.prj1.controller;
 
+import java.security.SecureRandom;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -52,7 +55,8 @@ public class NewsController {
 	 
 	 @RequestMapping(value="/news-list", method = RequestMethod.GET)
 	  public String listNews(HttpServletRequest request, @RequestParam(required=false, name = "sort", defaultValue="title") String typeSort, @RequestParam(required=false,name="title") String title, Model model) {
-		if(title != null) {
+
+		 if(title != null) {
 			model.addAttribute("listNews", newsService.searchByTitle(newsService.findAll(), title));
 			return "news-list";
 		}

@@ -1,9 +1,11 @@
 package com.prj1.service;
 
+import java.security.SecureRandom;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -73,7 +75,15 @@ public class UserService {
 	  
 	  public void save(User user){
 	    // validate business
-		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
+		  int strength = 10;
+		  BCryptPasswordEncoder bCryptPasswordEncoder =
+				  new BCryptPasswordEncoder(strength, new SecureRandom());
+		  String encodedPassword = bCryptPasswordEncoder.encode("aaaaa");
+		  System.out.println(encodedPassword);
+
+//		  BCryptPasswordEncoder b = new BCryptPasswordEncoder();
+//		  System.out.println(b.matches("aaaaa", encodedPassword));
+		  user.setPassword("encodedPassword");
 	    userDAO.save(user);
 	  }
 	  
@@ -85,7 +95,7 @@ public class UserService {
 		  cart.setSumProduct("0");
 		  cart.setUsername(user.getUsername());
 		  cartService.save(cart);
-		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
+		  user.setPassword(enCodePassword(user.getPassword()));
 		    userDAO.saveUser(user);
 		  }
 	  public void saveAdmin(User user){
@@ -95,13 +105,13 @@ public class UserService {
 		  cart.setSumProduct("0");
 		  cart.setUsername(user.getUsername());
 		  cartService.save(cart);
-		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
+		  user.setPassword(enCodePassword(user.getPassword()));
 		    userDAO.saveAdmin(user);
 		  }
 	  
 	  public void update(User user){
 	    // validate business
-		  user.setPassword("$2a$04$GYGsaJj9l6kH2GikK6QVzO0v3sOCxt3vdkiA2/tcoSw8erI85ZYDG");
+		  user.setPassword(enCodePassword(user.getPassword()));
 	    userDAO.update(user);
 	  }
 	  
@@ -120,6 +130,14 @@ public class UserService {
 		  Cart cart = cartService.loadCartByUsername(user.getUsername());
 		  cartService.delete(cart);
 		  userDAO.delete(user);
+	  }
+
+	  public String enCodePassword(String password) {
+		  int strength = 10;
+		  BCryptPasswordEncoder bCryptPasswordEncoder =
+				  new BCryptPasswordEncoder(strength, new SecureRandom());
+		  String encodedPassword = bCryptPasswordEncoder.encode(password);
+		  return encodedPassword;
 	  }
 	  
 	public List<User> sortByName(List<User> list) {
