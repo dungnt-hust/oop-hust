@@ -9,7 +9,6 @@
             <li class="nav-item mb-2"><a href="/prj1.com/news-list" class="nav-link p-0 text-muted">Home</a></li>
             <li class="nav-item mb-2"><a href="/prj1.com/product-list" class="nav-link p-0 text-muted">Shop</a></li>
             <li class="nav-item mb-2"><a href="https://github.com/hoangtc125/Project-1-Hust" class="nav-link p-0 text-muted">Link github</a></li>
-            <li class="nav-item mb-2"><a href="https://drive.google.com/drive/folders/1kAIsVMfNHi0V81b8w80BbJYqUzV3bW_9?usp=sharing" class="nav-link p-0 text-muted">Link drive</a></li>
             <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-muted">Project1</a></li>
           </ul>
         </div>

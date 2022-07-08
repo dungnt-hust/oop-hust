@@ -78,6 +78,7 @@ public class UserService {
 	  }
 	  
 	  public void saveUser(User user){
+		  System.out.println("savwe");
 		    // validate business
 		  Cart cart = new Cart();
 		  cart.setListProduct("");
