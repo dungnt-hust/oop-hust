@@ -125,11 +125,9 @@ public class AdminController {
 			User user = userService.findByUsername(username);
 			if (!user.getUsername().equals(AppUtils.getLoginedUser(request.getSession()))) {
 				//user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0
-				System.out.println(555);
 				List<Follow> follows = followService
 						.loadFollowByFollower(AppUtils.getLoginedUser(request.getSession()));
 				int canFollow = 1;
-				System.out.println(666);
 				for (Follow follow : follows) {
 					if (follow.getUsername().equals(user.getUsername())) {
 						//follow.getUsername().compareTo(user.getUsername()) == 0
@@ -167,14 +165,13 @@ public class AdminController {
 			HttpServletRequest request) {
 		if (id != -1) {
 			User user = userService.findById(id);
-			user.setPassword("123456");
 			model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 			model.addAttribute("user", user);
 		} else if (id == -1) {
 //			User user = userService.findByUsername(username);
 			User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
-			user.setPassword("123456");
 			model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
+			System.out.println("111");
 			model.addAttribute("user", user);
 		}
 		return "user-update";
