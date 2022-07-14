@@ -110,9 +110,9 @@ body{
 										aria-expanded="false"> ${news.author} </a>
 									<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 										<li><a class="dropdown-item"
-											href="/com.prj1.com/user-view/-1/${news.author}">View Profile</a></li>
+											href="/prj1.com/user-view/-1/${news.author}">View Profile</a></li>
 										<li><a class="dropdown-item"
-											href="/com.prj1.com/mail-save/${news.author}">Send Mail</a></li>
+											href="/prj1.com/mail-save/${news.author}">Send Mail</a></li>
 									</ul>
 								</div>
 								</h5>

@@ -92,7 +92,7 @@ public class MailService {
 		// TODO Auto-generated method stub
 		List<Mail> res = new ArrayList<Mail>();
 		for (Mail mail : list) {
-			if(mail.getTitle().compareTo(title) == 0) {
+			if(mail.getTitle().equals(title)) {
 				res.add(mail);
 			}
 		}
@@ -108,7 +108,7 @@ public class MailService {
 	public boolean checkRoleAdmin(String username) {
 		User user = userService.findByUsername(username);
 		if(user == null) return false;
-		if(user.getRole().compareTo("ROLE_ADMIN") == 0) {
+		if(user.getRole().equals("ROLE_ADMIN")) {
 			return true;
 		} else {
 			return false;

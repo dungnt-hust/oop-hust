@@ -61,13 +61,13 @@ public class NewsController {
 			return "news-list";
 		}
 
-		if(typeSort.compareTo("title") == 0) {
-		    model.addAttribute("listNews", newsService.sortByName(newsService.findAll()));
-		} else{	
+//		if(typeSort.equals("title")) {
+//		    model.addAttribute("listNews", newsService.sortByName(newsService.findAll()));
+//		} else{
 			List<News> news = newsService.findAll();
 			Collections.reverse(news);
 			model.addAttribute("listNews", news);
-		}
+//		}
 		
 	    return "news-list";
 	  }

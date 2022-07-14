@@ -33,9 +33,9 @@ margin-top: 50px;
 		                        
 		                       <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li><a class="dropdown-item"
-										href="/com.prj1.com/user-view/-1/${news.author}">View Profile</a></li>
+										href="/prj1.com/user-view/-1/${news.author}">View Profile</a></li>
 									<li><a class="dropdown-item"
-										href="/com.prj1.com/mail-save/${news.author}">Send Mail</a></li>
+										href="/prj1.com/mail-save/${news.author}">Send Mail</a></li>
 								</ul>
 		                    </div>
 		                </div>
@@ -101,23 +101,23 @@ margin-top: 50px;
                             <li class=""><c:choose>
 								<c:when test="${roleAdmin == true}">
 								<div class = "comment">
-									<a href="/com.prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete</a>
+									<a href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete</a>
 								</div>
 								</c:when>
 								<c:when
 									test="${pageContext.request.userPrincipal.name == comment.sender}">
 									<div class = "comment">
 									<a
-										href="/com.prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete</a>
+										href="/prj1.com/commentDeleteNews/${comment.id}/${news.id}">Delete</a>
 									</div>
 								</c:when>
 							</c:choose></li>
                         </ul>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item"
-                                href="/com.prj1.com/user-view/-1/${comment.sender}">View Profile</a></li>
+                                href="/prj1.com/user-view/-1/${comment.sender}">View Profile</a></li>
                             <li><a class="dropdown-item"
-                                href="/com.prj1.com/mail-save/${comment.sender}">Send mail</a></li>
+                                href="/prj1.com/mail-save/${comment.sender}">Send mail</a></li>
                         </ul>
                     </div>
                 </div>

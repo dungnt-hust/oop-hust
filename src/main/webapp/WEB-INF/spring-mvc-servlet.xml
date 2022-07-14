@@ -39,7 +39,7 @@
 		<property name="url"
 			value="jdbc:mysql://localhost:3306/oop" />
 		<property name="username" value="root" />
-		<property name="password" value="dtm0110" />
+		<property name="password" value="BossDung1508" />
 	</bean>
 
 	<tx:annotation-driven

@@ -123,12 +123,16 @@ public class AdminController {
 			Collections.reverse(news);
 			model.addAttribute("listNews", news);
 			User user = userService.findByUsername(username);
-			if (user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0) {
+			if (!user.getUsername().equals(AppUtils.getLoginedUser(request.getSession()))) {
+				//user.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) != 0
+				System.out.println(555);
 				List<Follow> follows = followService
 						.loadFollowByFollower(AppUtils.getLoginedUser(request.getSession()));
 				int canFollow = 1;
+				System.out.println(666);
 				for (Follow follow : follows) {
-					if (follow.getUsername().compareTo(user.getUsername()) == 0) {
+					if (follow.getUsername().equals(user.getUsername())) {
+						//follow.getUsername().compareTo(user.getUsername()) == 0
 						canFollow = 0;
 						break;
 					}

@@ -1,5 +1,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%--<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>--%>
+
 <div class="HEADER">
   <header class="p-3 fixed-top">
     <div class="container">
@@ -7,19 +9,18 @@
 
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 mb-md-0" id="main-menu">
           <li><a href="/prj1.com/news-list" class="nav-link px-2 text-white">HOME</a></li>
-          <li><a href="/prj1.com/product-list" class="nav-link px-2">SHOP</a></li>
-          <li><a href="https://github.com/hoangtc125/Project-1-Hust" class="nav-link px-2">GITHUB</a></li>
+          <li><a href="" class="nav-link px-2">GITHUB</a></li>
         	<li><a href="/prj1.com/news-save" class="nav-link px-2">Add Your News</a></li>
         </ul>
 
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" action="<c:url value="/user-list" />" method="get">
-          <input name="mssv" type="search" class="form-control" placeholder="Search user by MSSV" aria-label="Search">
-          <button type="submit" class="btn btn-success" >Search</button>
-        </form>
+<%--        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex" action="<c:url value="/user-list" />" method="get">--%>
+<%--          <input name="mssv" type="search" class="form-control" placeholder="Search user by MSSV" aria-label="Search">--%>
+<%--          <button type="submit" class="btn btn-success" >Search</button>--%>
+<%--        </form>--%>
         <div class="text-end">
-        
-        
-        
+
+
+
         <div class="nav-item dropdown d-flex" >
 			<c:if test="${not empty pageContext.request.userPrincipal.name}">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -37,16 +38,6 @@
 						href="/prj1.com/noti-view">Your Notification</a></li>
 					<li><a class="dropdown-item"
 						href="/prj1.com/news-list-management">News Management</a></li>
-					<li><a class="dropdown-item"
-						href="/prj1.com/product-list-management">Product Management</a></li>
-					<li><a class="dropdown-item"
-						href="/prj1.com/cart-list-management">Cart Management</a></li>
-					<li><a class="dropdown-item" href="/prj1.com/cart-view/-1/">Your
-							Cart</a></li>
-					<li><a class="dropdown-item"
-						href="/prj1.com/bill-list-management">Bill Management</a></li>
-					<li><a class="dropdown-item" href="/prj1.com/bill-list">Your
-							Bill</a></li>
 					<li><a class="dropdown-item"
 						href="/prj1.com/mail-list/${pageContext.request.userPrincipal.name}">
 							<button type="button" class="btn btn-primary position-relative">
@@ -73,7 +64,7 @@
 				</button>
 			</c:if>
 		</div>
-          
+
 
 
 

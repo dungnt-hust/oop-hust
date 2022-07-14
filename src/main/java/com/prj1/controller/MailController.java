@@ -39,14 +39,14 @@ public class MailController {
 			model.addAttribute("listMail", mailService.searchByTitle(mailService.findAll(user.getId()), title));
 			return "mail-list";
 		}
-		if(mode.compareTo("receive") == 0) {
+		System.out.println("111");
+		if(mode.equals("receive")) {
 			model.addAttribute("listMail", mailService.findAllReceive(user.getId()));
-		} else if(mode.compareTo("send") == 0) {
+		} else if(mode.equals("send")) {
 			model.addAttribute("listMail", mailService.findAllSend(user.getId()));
 		} else {
 			model.addAttribute("listMail", mailService.findAll(user.getId()));
 		}
-		  
 	    return "mail-list";
 	  }
 	 
@@ -84,10 +84,10 @@ public class MailController {
 		  mail.setIdUser(user.getId());
 		  mail.setSender(AppUtils.getLoginedUser(request.getSession()));
 		  mail.setIsRead("No");		  
-		  if(mail.getReceiver().compareTo("all") == 0 && mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession()))) {
+		  if(mail.getReceiver().equals("all") && mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession()))) {
 			  List<User> users = userService.findAll();
 			  for (User user2 : users) {
-				  if(user2.getUsername().compareTo(AppUtils.getLoginedUser(request.getSession())) == 0) {
+				  if(user2.getUsername().equals(AppUtils.getLoginedUser(request.getSession()))) {
 					  continue;
 				  }
 				mail.setReceiver(user2.getUsername());

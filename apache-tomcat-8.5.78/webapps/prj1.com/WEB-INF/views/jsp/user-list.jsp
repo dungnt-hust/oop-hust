@@ -75,10 +75,10 @@ body {
 											aria-expanded="false"> ${user.name} </a>
 										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 											<li><a class="dropdown-item"
-												href="/com.prj1.com/user-view/-1/${user.username}">View
+												href="/prj1.com/user-view/-1/${user.username}">View
 													Profile</a></li>
 											<li><a class="dropdown-item"
-												href="/com.prj1.com/mail-save/${user.username}">Send Mail</a></li>
+												href="/prj1.com/mail-save/${user.username}">Send Mail</a></li>
 										</ul>
 									</div></td>
 								<td>${user.mssv}</td>

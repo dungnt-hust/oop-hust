@@ -93,7 +93,7 @@ public class NewsService {
 		// TODO Auto-generated method stub
 		List<News> res = new ArrayList<News>();
 		for (News news : list) {
-			if(news.getTitle().compareTo(title) == 0) {
+			if(news.getTitle().equals(title)) {
 				res.add(news);
 			}
 		}

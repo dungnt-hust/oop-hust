@@ -34,9 +34,9 @@
 												${mail.sender} </a>
 												<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 													<li><a class="dropdown-item"
-														href="/com.prj1.com/user-view/-1/${mail.sender}">View Profile</a></li>
+														href="/prj1.com/user-view/-1/${mail.sender}">View Profile</a></li>
 													<li><a class="dropdown-item"
-														href="/com.prj1.com/mail-save/${mail.sender}">Send Mail</a></li>
+														href="/prj1.com/mail-save/${mail.sender}">Send Mail</a></li>
 												</ul>
 												
 												<ul class="list-unstyled list-inline media-detail pull-lef d-flex" style = "margin-left: 20px; 	color:#AAAAAA;font-size:12px;padding-right: 10px;font-weight:600;">
@@ -74,9 +74,9 @@
 											${mail.receiver} </a>
 										<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 											<li><a class="dropdown-item"
-												href="/com.prj1.com/user-view/-1/${mail.receiver}">View Profile</a></li>
+												href="/prj1.com/user-view/-1/${mail.receiver}">View Profile</a></li>
 											<li><a class="dropdown-item"
-												href="/com.prj1.com/mail-save/${mail.receiver}">Send Mail</a></li>
+												href="/prj1.com/mail-save/${mail.receiver}">Send Mail</a></li>
 										</ul>
 										
 								</div></b>

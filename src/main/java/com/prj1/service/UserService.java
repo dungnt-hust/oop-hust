@@ -10,7 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.prj1.dao.UserDAO;
-import com.prj1.entities.Cart;
 import com.prj1.entities.User;
 
 @Service
@@ -20,9 +19,6 @@ public class UserService {
 	@Autowired
 	  private UserDAO userDAO;
 
-	 @Autowired
-	  private CartService cartService;
-	  
 	  public List<User> findAll() {
 	    return userDAO.findAll();
 	  }
@@ -67,7 +63,8 @@ public class UserService {
 	  public User findByUsername(String username) {
 		  List<User> list = userDAO.findAll();
 		  for (User user : list) {
-			if(user.getUsername().compareTo(username) == 0)
+			  System.out.println(user);
+			if(user.getUsername().contains(username))
 				return user;
 		}
 		return null;
@@ -88,23 +85,12 @@ public class UserService {
 	  }
 	  
 	  public void saveUser(User user){
-		  System.out.println("savwe");
 		    // validate business
-		  Cart cart = new Cart();
-		  cart.setListProduct("");
-		  cart.setSumProduct("0");
-		  cart.setUsername(user.getUsername());
-		  cartService.save(cart);
 		  user.setPassword(enCodePassword(user.getPassword()));
 		    userDAO.saveUser(user);
 		  }
 	  public void saveAdmin(User user){
 		    // validate business
-		  Cart cart = new Cart();
-		  cart.setListProduct("");
-		  cart.setSumProduct("0");
-		  cart.setUsername(user.getUsername());
-		  cartService.save(cart);
 		  user.setPassword(enCodePassword(user.getPassword()));
 		    userDAO.saveAdmin(user);
 		  }
@@ -127,8 +113,6 @@ public class UserService {
 	  public void delete(int id){
 	    // validate business
 		  User user = userDAO.findById(id);
-		  Cart cart = cartService.loadCartByUsername(user.getUsername());
-		  cartService.delete(cart);
 		  userDAO.delete(user);
 	  }
 
