@@ -21,7 +21,7 @@
                     </div>
                     	<c:url value="/saveUser" var="saveUser" />
 						<c:url value="/saveAdmin" var="saveAdmin" />
-                    <form:form action="${saveUser}" method="POST" modelAttribute="user" id="formsave">
+                    <form:form action="${saveUser}" method="POST" modelAttribute="user-save" id="formsave">
                         <div class="form-group row mb-3">
                             <label for="name" class="col-sm-2 col-form-label">Name</label>
                             <div class="col-sm-10">

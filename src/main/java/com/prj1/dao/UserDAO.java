@@ -69,6 +69,7 @@ public class UserDAO {
 	    session.save(user);
 	  }
 	  public void update(final User user) {
+		  System.out.println("id save " + user.getId());
 	    Session session = this.sessionFactory.getCurrentSession();
 	    session.update(user);
 	  }

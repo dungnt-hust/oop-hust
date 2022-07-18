@@ -111,7 +111,7 @@ public class AdminController {
 
 	@RequestMapping("/user-save")
 	public String insertuser(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("user-save", new User());
 		return "user-save";
 	}
 
@@ -166,19 +166,21 @@ public class AdminController {
 		if (id != -1) {
 			User user = userService.findById(id);
 			model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
-			model.addAttribute("user", user);
+			model.addAttribute("user-update", user);
 		} else if (id == -1) {
 //			User user = userService.findByUsername(username);
 			User user = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
 			model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
-			System.out.println("111");
-			model.addAttribute("user", user);
+			model.addAttribute("user-update", user);
+			model.addAttribute("id-active", user.getId());
+			System.out.println("user " + user.getId());
 		}
-		return "user-update";
+
+ 		return "user-update";
 	}
 
 	@RequestMapping("/saveUser")
-	public String doSaveuser(@ModelAttribute("user") User user, Model model) {
+	public String doSaveuser(@ModelAttribute("user-save") User user, Model model) {
 		userService.saveUser(user);
 		model.addAttribute("listUser", userService.findAll());
 		return "redirect:/user-list";
@@ -192,7 +194,11 @@ public class AdminController {
 	}
 
 	@RequestMapping("/updateUser")
-	public String doUpdateuser(@ModelAttribute("user") User user, Model model) {
+	public String doUpdateuser(@ModelAttribute("user-update") User user, Model model, HttpServletRequest request) {
+		User user2 = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
+		System.out.println(user);
+		user.setId(user2.getId());
+		user.setPassword(user2.getPassword());
 		userService.update(user);
 		model.addAttribute("listUser", userService.findAll());
 		return "redirect:/user-list";

@@ -97,7 +97,9 @@ public class UserService {
 	  
 	  public void update(User user){
 	    // validate business
-		  user.setPassword(enCodePassword(user.getPassword()));
+		  //user.setPassword(enCodePassword(user.getPassword()));
+		  System.out.println(user.getPassword());
+		  System.out.println("id :" + user.getId());
 	    userDAO.update(user);
 	  }
 	  
