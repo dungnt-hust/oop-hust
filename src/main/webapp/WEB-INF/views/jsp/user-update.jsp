@@ -8,6 +8,13 @@
                     <c:url value="/updateUser" var="updateUser" />
                 <form:form action="${updateUser}" method="POST" modelAttribute="user-update" id="formupdate">
                     <div class="form-group row mb-3">
+                        <label for="name" class="col-sm-2 col-form-label">Id</label>
+                        <div class="col-sm-10">
+                            <form:input path="id" class="form-control"/>
+                        </div>
+                        <p class="error-name error-validation"></p>
+                    </div>
+                    <div class="form-group row mb-3">
                         <label for="name" class="col-sm-2 col-form-label">Name</label>
                         <div class="col-sm-10">
                             <form:input path="name" class="form-control name-valid"/>

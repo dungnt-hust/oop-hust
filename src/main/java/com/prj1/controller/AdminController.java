@@ -164,6 +164,7 @@ public class AdminController {
 	public String updateuser(@PathVariable("id") int id, @PathVariable("username") String username, Model model,
 			HttpServletRequest request) {
 		if (id != -1) {
+			System.out.println("hello id:" + id);
 			User user = userService.findById(id);
 			model.addAttribute("roleAdmin", mailService.checkRoleAdmin(AppUtils.getLoginedUser(request.getSession())));
 			model.addAttribute("user-update", user);
@@ -195,9 +196,11 @@ public class AdminController {
 
 	@RequestMapping("/updateUser")
 	public String doUpdateuser(@ModelAttribute("user-update") User user, Model model, HttpServletRequest request) {
+
 		User user2 = userService.findByUsername(AppUtils.getLoginedUser(request.getSession()));
-		System.out.println(user);
-		user.setId(user2.getId());
+		if ( user.getId() < 0){
+			user.setId(user2.getId());
+		}
 		user.setPassword(user2.getPassword());
 		userService.update(user);
 		model.addAttribute("listUser", userService.findAll());
